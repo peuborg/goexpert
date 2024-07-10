@@ -10,6 +10,7 @@ var (
 )
 
 func main() {
+	//Array
 	var meuArray [3]int
 	meuArray[0] = 10
 	meuArray[1] = 20
