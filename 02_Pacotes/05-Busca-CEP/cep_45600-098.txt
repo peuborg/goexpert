@@ -1,0 +1,12 @@
+***CEP***
+CEP: 45600-098
+Logradouro: Avenida José Soares Pinheiro
+Complemento: até 882 - lado par
+Unidade: 
+Bairro: Centro
+Localidade: Itabuna
+Uf: BA
+Ibge: 2914802
+Gia: 
+Ddd: 73
+Siafi: 3597

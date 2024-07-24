@@ -1,0 +1,12 @@
+***CEP***
+CEP: 45604-116
+Logradouro: 2ª Travessa Monte Alto
+Complemento: 
+Unidade: 
+Bairro: Nossa Senhora de Fátima
+Localidade: Itabuna
+Uf: BA
+Ibge: 2914802
+Gia: 
+Ddd: 73
+Siafi: 3597

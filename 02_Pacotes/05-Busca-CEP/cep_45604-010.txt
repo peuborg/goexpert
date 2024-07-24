@@ -1,0 +1,12 @@
+***CEP***
+CEP: 45604-010
+Logradouro: Rua São Francisco
+Complemento: de 240/241 a 608/609
+Unidade: 
+Bairro: Nossa Senhora de Fátima
+Localidade: Itabuna
+Uf: BA
+Ibge: 2914802
+Gia: 
+Ddd: 73
+Siafi: 3597
