@@ -4,11 +4,11 @@ import "net/http"
 
 func main() {
 	//http://localhost:8088/
-	http.HandleFunc("/", BuscaCepHandler)
+	http.HandleFunc("/", BuscaCepHttp2)
 	http.ListenAndServe(":8088", nil)
 }
 
-func BuscaCepHandler(w http.ResponseWriter, r *http.Request) {
+func BuscaCepHttp2(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		w.WriteHeader(http.StatusNotFound)
 		return
