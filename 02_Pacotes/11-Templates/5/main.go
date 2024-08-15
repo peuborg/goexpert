@@ -13,8 +13,14 @@ type Disciplina struct {
 type Disciplinas []Disciplina
 
 func main() {
-	t := template.Must(template.New("template.html").ParseFiles("template.html"))
-	err := t.Execute(os.Stdout, Disciplinas{ //Neste caso, a saída será no console (os.Stdout)
+	templates := []string{
+		"header.html",
+		"content.html",
+		"footer.html",
+	}
+
+	t := template.Must(template.New("content.html").ParseFiles(templates...))
+	err := t.Execute(os.Stdout, Disciplinas{
 		{"Banco de Dados", 60},
 		{"Banco NoSql", 40},
 		{"Desenvolvimento Front-End", 60},
@@ -25,4 +31,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 }
