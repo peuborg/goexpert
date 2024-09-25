@@ -5,6 +5,11 @@ import (
 	"net/http"
 )
 
+/*
+Defer é uma palavra reservada do Go que envia a função para uma lista de chamadas.
+Essas chamadas serão executadas depois que a função onde o defer se encontra terminar sua execução.
+*/
+
 func main() {
 	req, err := http.Get("https://www.google.com")
 	if err != nil {
