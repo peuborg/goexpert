@@ -1,22 +1,23 @@
 package main
 
 import (
+	"context"
 	"io"
 	"net/http"
+	"time"
 )
 
 func main() {
-	//clientHTTP
-	c := http.Client{}
+	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(ctx, time.Second)
+	defer cancel()
 	//Objeto de Request
-	req, err := http.NewRequest("GET", "http://www.google.com", nil)
+	req, err := http.NewRequestWithContext(ctx, "GET", "http://www.google.com", nil)
 	if err != nil {
 		panic(err)
 	}
-	//header da request
-	req.Header.Set("Accept", "application/json")
 	//response
-	resp, err := c.Do(req)
+	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		panic(err)
 	}
