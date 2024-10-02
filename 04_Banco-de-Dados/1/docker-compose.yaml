@@ -1,6 +1,6 @@
 #https://docs.docker.com/compose/install/
 
-version: '3'  # Define a versão do Docker Compose
+#version: '3.8'  # Define a versão do Docker Compose
 
 services:
   mysql_db:  # Nome do serviço do contêiner
