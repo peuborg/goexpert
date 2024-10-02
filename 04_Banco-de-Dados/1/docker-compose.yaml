@@ -1,0 +1,17 @@
+#https://docs.docker.com/compose/install/
+
+version: '3'  # Define a versão do Docker Compose
+
+services:
+  mysql_db:  # Nome do serviço do contêiner
+    image: mysql:8.0  # Imagem do MySQL utilizada
+    container_name: mysql  # Nome do contêiner
+    restart: always
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Senha para o usuário root
+      MYSQL_DATABASE: goexpert  # Banco de dados inicial a ser criado
+      MYSQL_USER: user  # Usuário adicional
+      MYSQL_PASSWORD: root  # Senha para o usuário adicional
+    ports:
+      - "3306:3306"  # Mapeamento da porta do contêiner para a máquina local
