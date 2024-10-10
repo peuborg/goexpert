@@ -4,5 +4,10 @@
     nome VARCHAR(80) NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (id)
-);*/
-select * from produtos
+);
+SHOW tables;
+desc pessoas;
+
+SELECT * FROM produtos ORDER BY nome
+SELECT * FROM pessoas ORDER BY nome*/
+SELECT * FROM pessoas ORDER BY nome
