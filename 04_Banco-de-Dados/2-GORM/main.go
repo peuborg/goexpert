@@ -32,11 +32,11 @@ func main() {
 
 	//Insert Many
 	pessoas := []Pessoa{
-		{Nome: "Beltrano", Email: "bel@email.com"},
-		{Nome: "Ciclano", Email: "ciclano@email.com"},
+		{Nome: "Bel", Email: "bel@email.com"},
+		{Nome: "Cicl", Email: "cicl@email.com"},
 		{Nome: "ze", Email: "ze@email.com"},
 	}
-	//db.Create(pessoas)
+	db.Create(pessoas)
 
 	//Select one
 	/*var pessoa Pessoa
@@ -67,7 +67,7 @@ func main() {
 
 	//WHERE
 	/*db.Where("id > ?", 5).Find(&pessoas)
-	for _, pessoa := range pessoas {
+	for _, pessoa := range pessoas {,.;
 		fmt.Println(pessoa)
 	}*/
 	db.Where("nome LIKE ?", "%Ciclano%").Find(&pessoas)
