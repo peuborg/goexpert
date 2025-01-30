@@ -8,6 +8,13 @@
 SHOW tables;
 desc pessoas;
 
-SELECT * FROM produtos ORDER BY nome
-SELECT * FROM pessoas ORDER BY nome*/
+SELECT * FROM produtos ORDER BY nome;
+DROP TABLE pessoas;
+DESC pessoas;
 SELECT * FROM pessoas ORDER BY nome
+SELECT * FROM categoria
+SELECT * FROM items ORDER BY nome
+*/
+SHOW tables;
+SELECT * FROM categoria;
+SELECT * FROM items ORDER BY nome;
