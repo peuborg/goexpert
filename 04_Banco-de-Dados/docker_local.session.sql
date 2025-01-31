@@ -15,6 +15,6 @@ SELECT * FROM pessoas ORDER BY nome
 SELECT * FROM categoria
 SELECT * FROM items ORDER BY nome
 */
-SHOW tables;
+SELECT * FROM  ORDER BY nome;
 SELECT * FROM categoria;
 SELECT * FROM items ORDER BY nome;

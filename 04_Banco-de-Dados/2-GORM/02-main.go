@@ -50,5 +50,4 @@ func main() {
 		fmt.Println(Item)
 		fmt.Println(Item.Nome, Item.Categoria.Nome)
 	}
-
 }
