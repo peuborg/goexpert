@@ -8,24 +8,18 @@ import (
 )
 
 type Categoria struct {
-	ID   int `gorm:"primaryKey;"`
-	Nome string
+	ID      int `gorm:"primaryKey;"`
+	Nome    string
+	Objetos []Objeto
 }
 
-type Item struct {
-	ID           int `gorm:"primaryKey;"`
-	Nome         string
-	Preco        float64
-	CategoriaID  int
-	Categoria    Categoria
-	NumeroSerial NumeroSerial
-	gorm.Model   //Cria as colunas datetime de ins upd del
-}
-
-type NumeroSerial struct {
-	ID     int `gorm:"primaryKey;"`
-	Numero string
-	ItemID int
+type Objeto struct {
+	ID          int `gorm:"primaryKey;"`
+	Nome        string
+	Preco       float64
+	CategoriaID int
+	Categoria   Categoria
+	gorm.Model  //Cria as colunas datetime de ins upd del
 }
 
 func main() {
@@ -37,30 +31,31 @@ func main() {
 	}
 
 	//Create Table
-	db.AutoMigrate(&Item{}, &Categoria{}, &NumeroSerial{})
+	db.AutoMigrate(&Objeto{}, &Categoria{})
 
 	//Insert Categoria
-	categoria := Categoria{Nome: "calçados"}
+	/*categoria := Categoria{Nome: "eletrodomésticos"}
 	db.Create(&categoria)
 	//Insert Belongs To
-	item := Item{
-		Nome:        "tenis adidas",
-		Preco:       1200,
+	objeto := Objeto{
+		Nome:        "Geladeira",
+		Preco:       5000,
 		CategoriaID: categoria.ID,
 	}
-	db.Create(&item)
-	//Insert Has One
-	db.Create(&NumeroSerial{
-		Numero: "1234567890",
-		ItemID: item.ID,
-	})
+	db.Create(&objeto)*/
 
-	//Select all
-	var itens []Item
-	//Select Belongs To e Has One
-	db.Preload("Categoria").Preload("NumeroSerial").Find(&itens)
-	for _, Item := range itens {
-		fmt.Println(Item)
-		fmt.Println(Item.Nome, Item.Categoria.Nome, Item.NumeroSerial.Numero)
+	//Has Many - Uma categoria pode ter vários produtos
+	var categorias []Categoria
+	err = db.Model(&Categoria{}).Preload("Objetos").Find(&categorias).Error
+	if err != nil {
+		panic(err)
+	}
+
+	//Exibindo todos os produtos de todas as categorias
+	for _, categoria := range categorias {
+		fmt.Println(categoria.Nome, ":")
+		for _, objeto := range categoria.Objetos {
+			fmt.Println("Objeto: ", objeto.Nome, categoria.Nome)
+		}
 	}
 }

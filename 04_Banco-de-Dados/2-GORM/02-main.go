@@ -33,21 +33,22 @@ func main() {
 	db.AutoMigrate(&Item{}, &Categoria{})
 
 	//Insert Categoria
-	/*categoria := Categoria{Nome: "Moveis"}
+	/*categoria := Categoria{Nome: "Doces"}
 	db.Create(&categoria)
 	//Insert Belongs To
 	db.Create(&Item{
-		Nome:        "sofa",
-		Preco:       3500,
+		Nome:        "brigadeiro",
+		Preco:       1,
 		CategoriaID: categoria.ID,
 	})*/
 
 	//Select all
 	var itens []Item
-	//Select Belongs To
-	db.Preload("Categoria").Find(&itens)
+	//Select Belongs To (Item pertence à Categoria)
+	db.Preload("Categoria").Find(&itens) //Preload traz os dados das Categorias, junto da busca dos itens
 	for _, Item := range itens {
-		fmt.Println(Item)
 		fmt.Println(Item.Nome, Item.Categoria.Nome)
+		fmt.Println(Item)
+		fmt.Println()
 	}
 }

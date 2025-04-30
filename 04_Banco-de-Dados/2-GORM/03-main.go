@@ -12,7 +12,7 @@ type Categoria struct {
 	Nome string
 }
 
-type Item struct {
+type Objeto struct {
 	ID           int `gorm:"primaryKey;"`
 	Nome         string
 	Preco        float64
@@ -23,9 +23,9 @@ type Item struct {
 }
 
 type NumeroSerial struct {
-	ID     int `gorm:"primaryKey;"`
-	Numero string
-	ItemID int
+	ID       int `gorm:"primaryKey;"`
+	Numero   string
+	ObjetoID int
 }
 
 func main() {
@@ -37,30 +37,31 @@ func main() {
 	}
 
 	//Create Table
-	db.AutoMigrate(&Item{}, &Categoria{}, &NumeroSerial{})
+	db.AutoMigrate(&Objeto{}, &Categoria{}, &NumeroSerial{})
 
 	//Insert Categoria
-	categoria := Categoria{Nome: "calçados"}
+	categoria := Categoria{Nome: "coisas em garrafa"}
 	db.Create(&categoria)
 	//Insert Belongs To
-	item := Item{
-		Nome:        "tenis adidas",
-		Preco:       1200,
+	objeto := Objeto{
+		Nome:        "diversos em garrafa",
+		Preco:       300,
 		CategoriaID: categoria.ID,
 	}
-	db.Create(&item)
+	db.Create(&objeto)
 	//Insert Has One
 	db.Create(&NumeroSerial{
-		Numero: "1234567890",
-		ItemID: item.ID,
+		Numero:   "456",
+		ObjetoID: objeto.ID,
 	})
 
 	//Select all
-	var itens []Item
+	var objetos []Objeto
 	//Select Belongs To e Has One
-	db.Preload("Categoria").Preload("NumeroSerial").Find(&itens)
-	for _, Item := range itens {
-		fmt.Println(Item)
-		fmt.Println(Item.Nome, Item.Categoria.Nome, Item.NumeroSerial.Numero)
+	//Objeto Pertence a Categoria e Tem Um NumeroSerial
+	db.Preload("Categoria").Preload("NumeroSerial").Find(&objetos)
+	for _, Objeto := range objetos {
+		fmt.Println(Objeto)
+		fmt.Println(Objeto.Nome, Objeto.Categoria.Nome, Objeto.NumeroSerial.Numero)
 	}
 }

@@ -41,7 +41,7 @@ func main() {
 	/*var pessoa1 Pessoa
 	var pessoa2 Pessoa
 	//Seleciona o primeiro registro com o código do parâmetro
-	db.First(&pessoa1, 1)
+	db.First(&pessoa1, 2)
 	fmt.Println(pessoa1)
 	//Seleciona o primeiro registro que satisfaz a condição
 	db.First(&pessoa2, "nome = ?", "ze")
@@ -61,36 +61,36 @@ func main() {
 		fmt.Println(pessoa)
 	}*/
 
-	//Select os 5 primeiros registros da página 2
+	//Select os 2 primeiros registros da página 2
 	/*var pessoas []Pessoa
-	db.Limit(5).Offset(5).Find(&pessoas)
+	db.Limit(2).Offset(2).Find(&pessoas)
 	for _, pessoa := range pessoas {
 		fmt.Println(pessoa)
 	}*/
 
 	//WHERE
 	/*var pessoas []Pessoa
-	db.Where("id > ?", 5).Find(&pessoas)
+	db.Where("id > ?", 3).Find(&pessoas)
 	for _, pessoa := range pessoas {
 		fmt.Println(pessoa)
 	}
-	db.Where("nome LIKE ?", "%Cicl%").Find(&pessoas)
+	db.Where("nome LIKE ?", "%Tal%").Find(&pessoas)
 	for _, pessoa := range pessoas {
 		fmt.Println(pessoa)
 	}*/
 
 	//UPDATE
 	/*var p Pessoa
-	db.First(&p, 1)
+	db.First(&p, 2)
 	p.Nome = "Beltraninho de Tal"
 	db.Save(&p)
 	//Seleciona o primeiro registro com o código do parâmetro
-	db.First(&p, 1)
+	db.First(&p, 2)
 	fmt.Println(p.Nome)*/
 
 	//DELETE
 	/*var p Pessoa
-	db.First(&p, 1)
+	db.First(&p, 6)
 	db.Delete(&p)*/
 
 }
