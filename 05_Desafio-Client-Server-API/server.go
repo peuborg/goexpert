@@ -29,7 +29,7 @@ func main() {
 
 func cotacaoHandler(w http.ResponseWriter, r *http.Request) {
 	// Contexto com timeout de 200ms para chamada da API
-	ctxAPI, cancelAPI := context.WithTimeout(context.Background(), 2000*time.Millisecond)
+	ctxAPI, cancelAPI := context.WithTimeout(context.Background(), 200*time.Millisecond)
 	defer cancelAPI()
 
 	req, err := http.NewRequestWithContext(ctxAPI, "GET", "https://economia.awesomeapi.com.br/json/last/USD-BRL", nil)
@@ -55,7 +55,7 @@ func cotacaoHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Contexto com timeout de 10ms para salvar no banco
-	ctxDB, cancelDB := context.WithTimeout(context.Background(), 1000*time.Millisecond)
+	ctxDB, cancelDB := context.WithTimeout(context.Background(), 10*time.Millisecond)
 	defer cancelDB()
 
 	if err := salvarCotacao(ctxDB, cotacao.USDBRL.Bid); err != nil {

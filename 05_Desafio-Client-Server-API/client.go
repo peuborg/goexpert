@@ -18,7 +18,7 @@ type Cotacao struct {
 
 func main() {
 	// Cria contexto com timeout de 300ms
-	ctx, cancel := context.WithTimeout(context.Background(), 3000*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 300*time.Millisecond)
 	defer cancel()
 
 	// Cria requisição com o contexto
