@@ -1,8 +1,8 @@
 package entity
 
 import (
-	"github.com/peuborg/goexpert09_APIS/internal/entity"
-	"github.com/peuborg/goexpert09_APIS/pkg/entity"
+	"github.com/peuborg/goexpert/09_APIS/internal/entity"
+	"github.com/peuborg/goexpert/09_APIS/pkg/entity"
 
 	"golang.org/x/crypto/bcrypt"
 )
